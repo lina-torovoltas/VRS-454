@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <title>VRS-454</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1 class="header">
+        <span class="red">VRS</span><span class="white">-</span><span class="yellow">454</span> <span class="white">Station</span>
+    </h1>
+
+    <p class="text">Current message:</p>
+
+    <pre class="messages">{{ current_message }}</pre>
+
+    <p class="text">Previous 10 messages:</p>
+
+    <pre class="messages">{{ previous_messages | safe }}</pre>
+
+
+    <div id="disclaimerModal">
+        <h2>Disable JavaScript</h2>
+        <p>JavaScript is enabled, that's a mistake!<br>
+            Disable it before working with these messages.</p>
+        <p>This page contains only encrypted data.<br>
+            The messages here are not the risk.</p>
+        <p>Enabled JavaScript may result in a risk of messages <br>
+            being leaked during the decryption process.</p>
+        <p>Do not rely on luck, <br>You know what is at stake.</p>
+        <div onclick="hideDisclaimer()" class="button-style-1">I understand the cost of risk</div>
+    </div>
+
+    <div id="modalOverlay"></div>
+
+    <div class="mail">VRS454@mail.i2p</div>
+
+    <script>
+        function showDisclaimer() {
+        document.getElementById("disclaimerModal").style.display = "block";
+        document.getElementById("modalOverlay").style.display = "block";
+    }
+        function hideDisclaimer() {
+        document.getElementById("disclaimerModal").style.display = "none";
+        document.getElementById("modalOverlay").style.display = "none";
+    }
+
+        window.onload = function() {
+        showDisclaimer();
+    };
+    </script>
+</body>
+</html>

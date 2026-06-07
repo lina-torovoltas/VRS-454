@@ -1,0 +1,49 @@
+VRS-454 Station Manager Guide
+
+This is a quick reference for the manager of VRS-454.
+
+Available endpoints:
+
+1. /manager_guide (GET) - returns this guide
+   Example:
+   curl http://0station.i2p/manager_guide
+
+2. /history (GET) - returns the history of messages
+   Example:
+   curl http://0station.i2p/history
+
+3. /logs (GET) - returns the logs (requires password)
+   Example:
+   curl http://0station.i2p/logs?password=
+
+4. /archive (GET) - returns the latest archive (tables + history)
+   Example:
+   curl http://0station.i2p/archive --output archive.tar.xz
+
+5. /queue (GET) - returns the message queue (requires password)
+   Example:
+   curl http://0station.i2p/queue?password=
+
+6. /change_password (POST) - change password (requires old password)
+   Example:
+   curl -X POST http://0station.i2p/change_password -H "Content-Type: application/json" -d '{"old_password":"","new_password":""}'
+
+7. /regenerate_message (POST) - regenerates the message (requires password)
+   Example:
+   curl -X POST http://0station.i2p/regenerate_message -H "Content-Type: application/json" -d '{"password":""}'
+
+8. /regenerate_tables (POST) - regenerates the cipher tables (requires password)
+   Example:
+   curl -X POST http://0station.i2p/regenerate_tables -H "Content-Type: application/json" -d '{"password":""}'
+
+9. /change_callsign (POST) - change the callsign (requires password)
+   Example:
+   curl -X POST http://0station.i2p/change_callsign -H "Content-Type: application/json" -d '{"password":"","callsign":"NEWCALL"}'
+
+10. /add_messages (POST) - add a message to the queue (requires password)
+    Example:
+    curl -X POST http://0station.i2p/add_messages -H "Content-Type: application/json" -d '{"password":"","message":"HELLO_WORLD"}'
+
+11. /clear_queue (POST) - clears the message queue (requires password)
+    Example:
+    curl -X POST http://0station.i2p/clear_queue -H "Content-Type: application/json" -d '{"password":""}'
